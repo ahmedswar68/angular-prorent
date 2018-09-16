@@ -1,0 +1,32 @@
+<!-- <button (click)="login()" class="btn btn-primary">Login with Google</button> -->
+<form class="form-horizontal" action='' method="POST">
+    <fieldset>
+      <div id="legend">
+        <legend class="">Login</legend>
+      </div>
+    
+      <div class="control-group">
+        <!-- E-mail -->
+        <label class="control-label" for="email">E-mail</label>
+        <div class="controls">
+          <input type="text" [(ngModel)]="loginUserData.email" id="email" name="email" placeholder="" class="input-xlarge">
+          <p class="help-block">Please provide your E-mail</p>
+        </div>
+      </div>
+   
+      <div class="control-group">
+        <!-- Password-->
+        <label class="control-label" for="password">Password</label>
+        <div class="controls">
+          <input type="password" [(ngModel)]="loginUserData.password" id="password" name="password" placeholder="" class="input-xlarge">
+          <p class="help-block">Password should be at least 4 characters</p>
+        </div>
+      </div>
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+          <button (click)="loginUser()" class="btn btn-success">Login</button>
+        </div>
+      </div>
+    </fieldset>
+  </form>

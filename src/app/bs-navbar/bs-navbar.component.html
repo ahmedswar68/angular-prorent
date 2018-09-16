@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" routerLink="/">OShop</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active current" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/{{currentLanguage}}">{{'home' | translate }}</a></li>
+        <li routerLinkActive="active current" *ngIf="!authService.isLoggedIN()"><a routerLink="/{{currentLanguage}}/login">{{'login' | translate }}</a></li>
+        <li routerLinkActive="active current" *ngIf="!authService.isLoggedIN()"><a routerLink="/{{currentLanguage}}/register">{{'register' | translate }}</a></li>
+        <li routerLinkActive="active current" ><a routerLink="/{{currentLanguage}}/shopping-cart">{{'shopping-cart' | translate }}</a></li>
+        <div class="nav navbar-nav navbar-right">
+          <div class="menu-list link-tr">
+              <a *ngIf="getLanguage() == 'ar'" style="cursor: pointer;" (click)="toggleLanguage('en')">English</a>
+              <a *ngIf="getLanguage() == 'en'" style="cursor: pointer;" (click)="toggleLanguage('ar')">عربي</a>                    
+          </div>
+      </div>
+        <li *ngIf="authService.isLoggedIN()" ngbDropdown class="dropdown">
+          <a ngbDropdownToggle class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, <span class="caret"></span></a>
+          <ul ngbDropdownMenu class="dropdown-menu show">
+            <li><a routerLink="/{{currentLanguage}}/myProfile">{{'myprofile' | translate }}</a></li>
+            <li><a routerLink="/{{currentLanguage}}/myOrders">{{'myorders' | translate }}</a></li>
+            <li><a routerLink="/{{currentLanguage}}/admin/products">{{'manage-products' | translate }}</a></li>
+            <li><a routerLink="/{{currentLanguage}}/admin/orders">{{'manage-orders' | translate }}</a></li>
+            <li><a (click)="authService.logout()">{{'logout' | translate }}</a></li>            
+          </ul>
+        </li>
+      </ul>
+      
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
