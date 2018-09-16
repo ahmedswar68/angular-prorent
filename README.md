@@ -1,6 +1,11 @@
 # OShop
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
+this is an angular projects that provides some features 
+1-Authenticaton and autherization level
+2-Multilingual
+
+
 
 ## Development server
 
